@@ -6,11 +6,11 @@ API REST avec la base de données NO SQL Mongo DB pour la gestion des notes.
 
 Récupérer le repo : 
 
-`git clone https://github.com/CyrielLoicMeliYamtcheu/`
+`git clone https://github.com/CyrielLoicMeliYamtcheu/API_GESTION_NOTES.git`
 
 Se positionner dans le répertoire
 
-`cd EIT-4eme-API`
+`cd API_GESTION_NOTES`
 
 Installer les dépendances
 
