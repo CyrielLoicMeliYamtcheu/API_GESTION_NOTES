@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+const matiere = require('./matiere.model')
+
 const schema = mongoose.Schema({
     nom: {type: String, default: ""},
     prenom: {type: String, default: ""},
