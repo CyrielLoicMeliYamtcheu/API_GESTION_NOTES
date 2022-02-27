@@ -6,8 +6,9 @@ const schema = mongoose.Schema({
     prenom: {type: String, default: ""},
     email: {type: String, default: ""},
     password: {type: String, default: ""},
-    matiere: {type: [Object], default: [] } 
-    
+    matiere: {type: [Object], default: [] },
+    user: {type: Object, ref: 'user'}
+         
 })
 
 module.exports = mongoose.model('enseignant',schema)

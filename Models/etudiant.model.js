@@ -6,10 +6,13 @@ const schema = mongoose.Schema({
     prenom:  { type: String, default: "" },
     email:  { type: String, default: "" },
     password:  { type: String, default: "" },
-    niveau:  { type: mongoose.Schema.Types.ObjectId, ref:'niveau' },
+    matricule: {type: String, default: ""},
+    niveau:  { type: Object, ref:'niveau' },
     specialite:  { type: String, default: "" },
     image:  { type: String, default: "" },
-    notes: {type: [Object], default: [] }
+    notes: {type: [Object], default: [] },
+    user: {type: Object, ref: 'user'}
+
 })
 
 module.exports = mongoose.model('etudiant',schema)
