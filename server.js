@@ -296,23 +296,30 @@ server.get('/onestudent/:id', async (req, res) => {
 server.put('/etudiant/:id', async (req, res) => {
     const {id} = req.params
     const elem = req.body
-    console.log("id ", id)
+    console.log("id 2 ", id)
     console.log(elem)
     const donne = await Users.findOne({_id:id})
     if(donne != null){
-    const data = await Users.updateOne({_id: id}, elem)
-    console.log("update data ",data)
-    if (data) {
-        const donne2 = await Etudiants.findOne({email: donne.email})
-        const infos = await Etudiants.updateOne({
-            _id: donne2._id
-        }, elem)
-        console.log("update infos ",infos)
-        const status = infos.acknowledged ? 200 : 400
-        res.writeHead(status)
-        res.end()
-    }
-}
+        console.log("donneee", donne)
+        let myUpdate = {$set:{nom:elem.nom, prenom: elem.prenom, email:elem.email}}
+        let data = await Users.updateOne({_id: id}, myUpdate)
+
+        // const data = await Users.updateOne({_id: id}, elem)
+         console.log("update data ",data)
+
+       
+            const donne2 = await Etudiants.findOne({email: donne.email})
+            console.log("find data 222 ",donne2)
+            let myUpdated = {$set:{nom:elem.nom, prenom: elem.prenom, email:elem.email, specialite:elem.specialite}}
+            const infos = await Etudiants.updateOne({
+                _id: donne2._id
+            }, myUpdated)
+            console.log("update infos ",infos)
+            const status = infos.acknowledged ? 200 : 400
+            res.writeHead(status)
+            res.end()
+       
+ }
 
 })
 
